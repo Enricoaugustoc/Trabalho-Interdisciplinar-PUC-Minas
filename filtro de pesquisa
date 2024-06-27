@@ -1,0 +1,210 @@
+JS: const data = [
+    {
+        title:"NC123445BR",
+        description: 
+        "2024-05-13, Rio de Janeiro, Em trânsito."
+    },
+    {
+        title:"NC567823BR",
+        description: 
+        "2024-05-10, São Paulo, Entregue."
+    },
+    {
+        title:"NC910111BR",
+        description: 
+        "2024-05-08, Belo Horizonte, Aguardando retirada."
+    },
+    {
+        title:"NC121314BR",
+        description: 
+        "2024-05-11, Curitiba, Em trânsito."
+    },
+    {
+        title:"NC151617BR",
+        description: 
+        "2024-03-12, Cuiabá, Entregue."
+    },
+    {
+        title:"NC181920BR",
+        description: 
+        "2024-03-22, Divinópolis, Objeto Postado."
+    },
+    {
+        title:"NC212223BR",
+        description: 
+        "2024-04-20, Nova Serrana, Objeto Postado."
+    },
+    {
+        title:"NC242526BR",
+        description: 
+        "2024-04-09, Fortaleza, Pedido aguardando liberação."
+    },
+    {
+        title:"NC272829BR",
+        description: 
+        "2024-04-01, São Paulo, Pedido aguardando verificação de Autenticidade de Marca."
+    },
+    {
+        title:"NC303132BR",
+        description: 
+        "2024-04-15, Porto Alegre, Em trânsito."
+    },
+    {
+        title:"NC333435BR",
+        description: 
+        "2024-04-20, Salvador, Aguardando retirada."
+    },
+    {
+        title:"NC363738BR",
+        description: 
+        "2024-04-25, Brasília, Entregue."
+    },
+    {
+        title:"NC394041BR",
+        description: 
+        "2024-04-30, Recife, Em trânsito."
+    },
+    {
+        title:"NC424344BR",
+        description: 
+        "2024-05-05, Manaus, Aguardando retirada."
+    },
+    {
+        title:"NC454647BR",
+        description: 
+        "2024-05-10, Natal, Em trânsito."
+    },
+    {
+        title:"NC484950BR",
+        description: 
+        "2024-05-15, Florianópolis, Entregue."
+    },
+    {
+        title:"NC515253BR",
+        description: 
+        "2024-05-20, Porto Velho, Aguardando retirada."
+    },
+    {
+        title:"NC545556BR",
+        description: 
+        "2024-05-25, Goiânia, Em trânsito."
+    },
+    {
+        title:"NC575859BR",
+        description: 
+        "2024-05-01, Vitória, Aguardando retirada."
+    },
+    {
+        title:"NC606162BR",
+        description: 
+        "2024-05-05, Campo Grande, Em trânsito."
+    },
+    {
+        title:"NC636465BR",
+        description: 
+        "2024-05-10, Teresina, Entregue."
+    },
+    {
+        title:"NC666768BR",
+        description: 
+        "2024-05-15, João Pessoa, Aguardando retirada."
+    },
+    {
+        title:"NC697071BR",
+        description: 
+        "2024-05-20, Cuiabá, Em trânsito."
+    },
+    
+];
+
+const cardContainer = document.querySelector(".card-container");
+const searchInput = document.querySelector("#searchInput");
+
+const displayData = data => {
+    cardContainer.innerHTML = "";
+    data.forEach(e => {
+        cardContainer.innerHTML += `
+        <div class="card">
+        <h3>${e.title}</h3>
+        <p>${e.description}</p>
+        </div>
+        `
+    })
+}
+
+
+searchInput.addEventListener("keyup", (e) => {
+    const search = data.filter(i => i.title.toLowerCase().includes(e.target.value.toLowerCase()));
+    displayData(search);
+})
+
+window.addEventListener("load", displayData.bind(null,data))
+
+HTML: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meus Rastreios </title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+  <link rel="stylesheet" href="rastreio.css">
+  <script src="rastreio.js" defer></script>
+</head>
+<body>
+  <div class="search">
+    <label for="searchInput">
+      <span class="material-symbols-outlined"> search </span>
+    </label>
+    <input type="text" id="searchInput" placeholder="Pesquisar">
+  </div> 
+  <div class="card-container">
+  </div>
+</body>
+</html>
+
+CSS: @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    background-color: #f7f7f7;
+}
+.search{
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    background-color: #00000006;
+    width: 400px;
+    margin: 20px auto;
+    border-radius: 20px;
+    padding: 5px 10px;
+    color: #4b4b4b;
+}
+#searchInput{
+    padding: 8px;
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    outline: none;
+}
+.search label{
+    height: 20px;
+}
+.card-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.card{
+    width: 300px;
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px 20px;
+    box-shadow: 0 0 8px rgba(0, 0, 0,0.1);
+}
